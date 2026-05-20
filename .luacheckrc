@@ -1,6 +1,7 @@
 std = "none"
 max_line_length = false
 unused_args = false
+exclude_files = {".luarocks"}
 
 -- Addon globals written by this addon (including the locale table set by Locales/enUS.lua)
 globals = {
