@@ -14,6 +14,8 @@ luacheck .
 
 The devcontainer installs `lua5.1` and `luacheck` automatically. CI runs `luacheck .` on every push. All globals must be declared in `.luacheckrc` — add new addon-written globals to `globals` and WoW/Lua API globals to `read_globals`.
 
+The VS Code Lua language server uses `.luarc.json` (`Lua.diagnostics.globals`) for IDE diagnostics. There is no way to share config between the two files — they use incompatible formats. This duplication is the community norm; projects like WeakAuras and Ace3 do the same. When adding a new global, update both files.
+
 ## Releasing
 
 Push a `v*` tag (e.g. `git tag v1.0.0 && git push origin v1.0.0`). The `release.yml` workflow runs [BigWigsMods/packager](https://github.com/BigWigsMods/packager), which strips dev files (listed in `.pkgmeta`) and creates a GitHub release with a zip ready for manual install or CurseForge upload.

@@ -16,7 +16,8 @@
         "sumneko.lua",
         "Ketho.wow-api",
         "johnnymorganz.stylua",
-        "anthropic.claude-code"
+        "anthropic.claude-code",
+        "eamodio.gitlens"
       ],
       "settings": {
         "Lua.runtime.version": "Lua 5.1",
