@@ -17,6 +17,7 @@
     "Lua.diagnostics.globals": [
         "DEFAULT_CHAT_FRAME",
         "ChatFrame_AddMessageEventFilter",
-        "ChatFrame_RemoveMessageEventFilter"
+        "ChatFrame_RemoveMessageEventFilter",
+        "SlashCmdList"
     ]
 }

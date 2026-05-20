@@ -8,6 +8,9 @@
     "ChatFrame_AddMessageEventFilter",
     "ChatFrame_RemoveMessageEventFilter",
     "CreateFrame",
+    "UIParent",
+    "SlashCmdList",
+    "SLASH_ADBLOCKERWOW1",
     "print",
     "string"
   ],

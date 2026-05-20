@@ -1,4 +1,5 @@
 Filters = {}
+Filters.sessionBlocked = 0
 local L = AdBlockerWoW_L
 
 -- Channel event types to intercept
@@ -46,6 +47,7 @@ local function onChatMessage(self, event, message, sender)
 
     local blocked = messageMatchesFilter(message)
     if blocked then
+        Filters.sessionBlocked = Filters.sessionBlocked + 1
         if AdBlockerWoW.db.logBlocked then
             print(string.format(L["MSG_BLOCKED"], sender or "?"))
         end

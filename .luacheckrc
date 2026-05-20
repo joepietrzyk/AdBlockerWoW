@@ -9,6 +9,8 @@ globals = {
     "AdBlockerWoWDB",
     "AdBlockerWoW_L",
     "Filters",
+    "SLASH_ADBLOCKERWOW1",
+    "SlashCmdList",
 }
 
 -- WoW API and Lua standard library globals read but not written by this addon
@@ -34,4 +36,5 @@ read_globals = {
     "CreateFrame",
     "ChatFrame_AddMessageEventFilter",
     "ChatFrame_RemoveMessageEventFilter",
+    "UIParent",
 }

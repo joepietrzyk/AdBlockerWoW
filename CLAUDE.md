@@ -24,7 +24,8 @@ File load order is determined by the `.toc`:
 
 1. **`Locales/enUS.lua`** — Creates `AdBlockerWoW_L` (the global locale table). Must load first; all other files read from it.
 2. **`Core.lua`** — Defines the `AdBlockerWoW` addon table. Handles `ADDON_LOADED` (initialises `AdBlockerWoWDB` SavedVariables with defaults) and `PLAYER_LOGIN` (calls `Filters:Register()`). Exposes `AdBlockerWoW:IsEnabled()`.
-3. **`Filters.lua`** — Defines the `Filters` global. `Filters:Register()` / `Filters:Unregister()` add or remove `onChatMessage` as a filter on each event in `WATCHED_EVENTS` via `ChatFrame_AddMessageEventFilter`. The filter function checks the lowercased message against `SERVICE_PATTERNS` (Lua patterns) and returns `true` to suppress a match.
+3. **`Filters.lua`** — Defines the `Filters` global. `Filters:Register()` / `Filters:Unregister()` add or remove `onChatMessage` as a filter on each event in `WATCHED_EVENTS` via `ChatFrame_AddMessageEventFilter`. The filter function checks the lowercased message against `SERVICE_PATTERNS` (Lua patterns) and returns `true` to suppress a match. Increments `Filters.sessionBlocked` on each suppressed message.
+4. **`UI.lua`** — Creates `AdBlockerWoWStatsFrame`, a draggable backdrop window showing the session blocked count (updates every 0.5 s). Registers the `/abw` slash command to toggle the window. Stores the frame at `AdBlockerWoW.statsFrame`.
 
 ### Adding a new filter pattern
 
@@ -38,7 +39,7 @@ Patterns are matched case-insensitively (message is lowercased before matching).
 
 ### Adding a new watched chat channel
 
-Add the event name to `WATCHED_EVENTS` in [Filters.lua](Filters.lua) and add it to `read_globals` in [.luacheckrc](.luacheckrc) if luacheck complains.
+Add the event name to `WATCHED_EVENTS` in [Filters.lua](Filters.lua) and add it to `read_globals` in [.luacheckrc](.luacheckrc) and `Lua.diagnostics.globals` in [.luarc.json](.luarc.json) if the linters complain.
 
 ### SavedVariables / settings
 
