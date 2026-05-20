@@ -1,5 +1,28 @@
 package-as: AdBlockerWoW
 
+externals:
+  Libs/LibStub:
+    url: https://repos.curseforge.com/wow/libstub/trunk
+    type: svn
+  Libs/CallbackHandler-1.0:
+    url: https://repos.curseforge.com/wow/callbackhandler/trunk
+    type: svn
+  Libs/AceAddon-3.0:
+    url: https://repos.curseforge.com/wow/ace3/trunk/AceAddon-3.0
+    type: svn
+  Libs/AceDB-3.0:
+    url: https://repos.curseforge.com/wow/ace3/trunk/AceDB-3.0
+    type: svn
+  Libs/AceDBOptions-3.0:
+    url: https://repos.curseforge.com/wow/ace3/trunk/AceDBOptions-3.0
+    type: svn
+  Libs/AceGUI-3.0:
+    url: https://repos.curseforge.com/wow/ace3/trunk/AceGUI-3.0
+    type: svn
+  Libs/AceConfig-3.0:
+    url: https://repos.curseforge.com/wow/ace3/trunk/AceConfig-3.0
+    type: svn
+
 ignore:
   - .github
   - .devcontainer
@@ -7,3 +30,5 @@ ignore:
   - .luarc.json
   - .luacheckrc
   - .pkgmeta
+  - CLAUDE.md
+  - README.md

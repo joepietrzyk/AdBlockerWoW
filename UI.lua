@@ -37,5 +37,5 @@ AdBlockerWoW.statsFrame = f
 
 SLASH_ADBLOCKERWOW1 = "/abw"
 SlashCmdList["ADBLOCKERWOW"] = function()
-    f:SetShown(not f:IsShown())
+    print(string.format(L["STATS_BLOCKED"], Filters.sessionBlocked))
 end

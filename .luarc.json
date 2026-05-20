@@ -5,6 +5,7 @@
     "AdBlockerWoWDB",
     "AdBlockerWoW_L",
     "Filters",
+    "LibStub",
     "ChatFrame_AddMessageEventFilter",
     "ChatFrame_RemoveMessageEventFilter",
     "CreateFrame",

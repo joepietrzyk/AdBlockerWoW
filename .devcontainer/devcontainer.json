@@ -5,7 +5,8 @@
     "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-  "onCreateCommand": "sudo apt-get update && sudo apt-get install -y lua5.1 luarocks && sudo luarocks install luacheck",
+  "onCreateCommand": "sudo apt-get update && sudo apt-get install -y lua5.1 luarocks subversion && sudo luarocks install luacheck",
+  "postCreateCommand": "bash .devcontainer/fetch-libs.sh",
   "mounts": [
     "source=claude-code-config,target=/home/vscode/.claude,type=volume",
     "source=gh-config,target=/home/vscode/.config/gh,type=volume"
@@ -29,7 +30,7 @@
           "UnitHealth",
           "DEFAULT_CHAT_FRAME"
         ],
-        "Lua.workspace.library": [],
+        "Lua.workspace.library": ["${workspaceFolder}/Libs"],
         "Lua.telemetry.enable": false,
         "editor.formatOnSave": true
       }

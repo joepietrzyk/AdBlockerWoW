@@ -1,44 +1,28 @@
-local addonName, _ = ...
+local addonName = ...
 
-AdBlockerWoW = {}
+AdBlockerWoW = LibStub("AceAddon-3.0"):NewAddon(addonName)
 local addon = AdBlockerWoW
 local L = AdBlockerWoW_L
 
 local defaults = {
-    enabled = true,
-    logBlocked = false,
+    profile = {
+        enabled = true,
+        logBlocked = false,
+    }
 }
 
-local frame = CreateFrame("Frame")
-frame:RegisterEvent("ADDON_LOADED")
-frame:RegisterEvent("PLAYER_LOGIN")
-
-frame:SetScript("OnEvent", function(self, event, ...)
-    if event == "ADDON_LOADED" then
-        local name = ...
-        if name == addonName then
-            addon:OnLoad()
-        end
-    elseif event == "PLAYER_LOGIN" then
-        addon:OnLogin()
-    end
-end)
-
-function addon:OnLoad()
-    AdBlockerWoWDB = AdBlockerWoWDB or {}
-    for k, v in pairs(defaults) do
-        if AdBlockerWoWDB[k] == nil then
-            AdBlockerWoWDB[k] = v
-        end
-    end
-    self.db = AdBlockerWoWDB
+function addon:OnInitialize()
+    self.db = LibStub("AceDB-3.0"):New("AdBlockerWoWDB", defaults, true)
+    self:SetupOptions()
 end
 
-function addon:OnLogin()
+function addon:OnEnable()
     print(L["ADDON_LOADED"])
-    Filters:Register()
+    if self.db.profile.enabled then
+        Filters:Register()
+    end
 end
 
 function addon:IsEnabled()
-    return self.db and self.db.enabled
+    return self.db and self.db.profile.enabled
 end

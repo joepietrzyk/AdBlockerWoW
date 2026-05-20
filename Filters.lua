@@ -48,7 +48,7 @@ local function onChatMessage(self, event, message, sender)
     local blocked = messageMatchesFilter(message)
     if blocked then
         Filters.sessionBlocked = Filters.sessionBlocked + 1
-        if AdBlockerWoW.db.logBlocked then
+        if AdBlockerWoW.db.profile.logBlocked then
             print(string.format(L["MSG_BLOCKED"], sender or "?"))
         end
         -- Returning true suppresses the message from appearing in chat.
