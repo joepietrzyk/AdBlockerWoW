@@ -2,7 +2,7 @@
 ## Title: AdBlockerWoW
 ## Notes: Filters trade/general chat messages selling AotC, timed Mythic+ runs, and gold.
 ## Author: Joe
-## Version: 0.2.0
+## Version: 0.2.1
 ## SavedVariables: AdBlockerWoWDB
 
 Locales\enUS.lua
