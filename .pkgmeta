@@ -1,0 +1,9 @@
+package-as: AdBlockerWoW
+
+ignore:
+  - .github
+  - .devcontainer
+  - .vscode
+  - .luarc.json
+  - .luacheckrc
+  - .pkgmeta

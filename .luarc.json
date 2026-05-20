@@ -1,0 +1,17 @@
+{
+  "Lua.runtime.version": "Lua 5.1",
+  "Lua.diagnostics.globals": [
+    "AdBlockerWoW",
+    "AdBlockerWoWDB",
+    "AdBlockerWoW_L",
+    "Filters",
+    "ChatFrame_AddMessageEventFilter",
+    "ChatFrame_RemoveMessageEventFilter",
+    "CreateFrame",
+    "print",
+    "string"
+  ],
+  "Lua.diagnostics.severity": {
+    "undefined-global": "Warning"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+  },
+  "onCreateCommand": "sudo apt-get update && sudo apt-get install -y lua5.1 luarocks && sudo luarocks install luacheck",
+  "mounts": [
+    "source=claude-code-config,target=/home/vscode/.claude,type=volume"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "sumneko.lua",
+        "Ketho.wow-api",
+        "johnnymorganz.stylua",
+        "anthropic.claude-code"
+      ],
+      "settings": {
+        "Lua.runtime.version": "Lua 5.1",
+        "Lua.diagnostics.globals": [
+          "C_Timer",
+          "CreateFrame",
+          "GetTime",
+          "UnitName",
+          "UnitHealth",
+          "DEFAULT_CHAT_FRAME"
+        ],
+        "Lua.workspace.library": [],
+        "Lua.telemetry.enable": false,
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "remoteUser": "vscode"
+}
